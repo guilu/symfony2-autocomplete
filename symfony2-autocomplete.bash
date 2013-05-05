@@ -51,6 +51,22 @@ HEREDOC
     return 0;
 }
 
+#Ahora ya ponemos los comoandos que va a completar _console
+complete -F _console console
+complete -F _console console-dev
+complete -F _console console-test
+complete -F _console console-prod
+complete -F _console console-staging
+complete -F _console Symfony
+
+
+#Explicación:
+#La función de arriba _console() es la que proporciona el autocompletado para los comandos indicados
+#para poder generar autocompletado para un alias sf2='./app/console' hay que envolver la funcion _console con otra
+#personalizada que lo que haga sea llamar a la de completado correcta.
+
+#La funcion que va a envolver el autocompletado de _console
+
 # Author.: Ole J
 # Date...: 23.03.2008
 # License: Whatever
@@ -79,21 +95,13 @@ function $function_name {
     eval "$function"
 }
 
-# and now the commands that are specific to this SO question
-
+# el alias que queremos autocompletar
 alias sf2='./app/console'
 
-# we create a _console_mine function that will do the completion for "sf"
-# using the completion function "_console"
+#Ahora crear el envoltorio _console_mine 
 make-completion-wrapper _console _console_mine ./app/console
 
-complete -F _console console
-complete -F _console console-dev
-complete -F _console console-test
-complete -F _console console-prod
-complete -F _console console-staging
-complete -F _console Symfony
-# we tell bash to actually use _console_mine to complete "sf2"
+# Decimos a  bash que use _console_mine para completar "sf2"
 complete -o bashdefault -o default -o nospace -F _console_mine sf2
 
 COMP_WORDBREAKS=${COMP_WORDBREAKS//:}
