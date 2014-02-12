@@ -25,3 +25,4 @@ Once you restart your bash, you should be able to autocomplete in a Symfony2 pro
     sf2 doc[TAB]
 
 
+![sf2 completion image](http://guilu.github.io/images/sf2-completion.png "sf2 doc[tab]")
