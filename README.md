@@ -13,8 +13,8 @@ The same, I use one folder named ~/code for all my little tools... so:
 
 and then in one of your dotfiles: .bashrc or .bash_profile or whatever:
 
-	if [ -e ~/code/symfony2-autocomplete/sf2-autocomplete.sh ]; then
-        . ~/code//symfony2-autocomplete/sf2-autocomplete.sh
+	if [ -e ~/code/symfony2-autocomplete/sf2-completion.sh ]; then
+        . ~/code//symfony2-autocomplete/sf2-completion.sh
     fi
  
 # sf2 autocomplete
@@ -22,4 +22,6 @@ and then in one of your dotfiles: .bashrc or .bash_profile or whatever:
 
 Once you restart your bash, you should be able to autocomplete in a Symfony2 project:
 
-    sf2 ca[TAB]
+    sf2 doc[TAB]
+
+
